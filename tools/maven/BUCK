@@ -1,0 +1,27 @@
+include_defs('//VERSION')
+include_defs('//tools/maven/package.defs')
+
+URL = 'https://oss.sonatype.org/content/repositories/snapshots' \
+      if SELENDROID_VERSION.endswith('-SNAPSHOT') else \
+        'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+
+maven_package(
+  repository = 'sonatype-nexus-staging',
+  url = URL,
+  version = SELENDROID_VERSION,
+  jar = {
+    'selendroid-common': '//selendroid-common:lib',
+  },
+  src = {
+    'selendroid-common': '//selendroid-common:src',
+  },
+  doc = {
+    'selendroid-common': '//selendroid-common:javadoc',
+  },
+)
+
+python_binary(
+  name = 'mvn',
+  main = 'mvn.py',
+  deps = ['//tools:util'],
+)

@@ -1,0 +1,7 @@
+prebuilt_jar(
+  name = 'selenium-api',
+  binary_jar = 'selenium-api-2.43.1.jar',
+  visibility = [
+    'PUBLIC',
+  ],
+)

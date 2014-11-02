@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'httpcore',
+  binary_jar = 'httpcore-4.3.3.jar',
+  source_jar = 'httpcore-4.3.3-sources.jar',
+  visibility = [
+    'PUBLIC',
+  ],
+)

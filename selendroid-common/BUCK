@@ -1,0 +1,51 @@
+SRCS = glob(['src/**/*.java'])
+
+java_library(
+  name = 'lib',
+  srcs = SRCS,
+  visibility = [ 'PUBLIC' ],  
+  exported_deps = [
+    '//third-party/selenium-support:selenium-support',
+    '//third-party/selenium-api:selenium-api',
+    '//third-party/selenium-java:selenium-java',
+    '//third-party/json:org-json',
+  ]
+)
+
+java_test(
+  name = 'test',
+  srcs = glob(['test/**/*.java']),
+  deps = [
+  	':src',
+    '//third-party/junit:junit',
+  ],
+)
+
+java_sources(
+  name = 'src',
+  srcs = SRCS,
+  visibility = ['PUBLIC'],
+)
+
+java_doc(
+  name = 'javadoc',
+  title = 'selendroid-common',
+  pkgs = ['io.selendroid'],
+  paths = ['src'],
+  srcs = SRCS,
+  deps = [
+    '//third-party/selenium-support:selenium-support',
+    '//third-party/selenium-api:selenium-api',
+    '//third-party/selenium-java:selenium-java',
+    '//third-party/json:org-json',
+  ],
+  visibility = ['PUBLIC'],
+)
+
+
+project_config(
+  src_target = ':src',
+  src_roots = [ 'src' ],
+  test_target = ':test',
+  test_roots = ['test'],
+)

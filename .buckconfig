@@ -1,0 +1,39 @@
+[java]
+	src_roots = /selendroid-standalone/src, /selendroid-client/src, /selendroid-common/src, /selendroid-server-common/src,/selendroid-grid-plugin/src /selendroid-server/src, /selendroid-testapp/src, /android-driver/src
+    # We target Gingerbread. Ensure that libraries target that.
+    #source_level = 10
+    #target_level = 10
+
+[project]
+    ide = intellij
+    check_package_boundary = false
+    # Directories that do not contain input files.
+    ignore = .buckd, \
+             .git, \
+             .idea, \
+             buck-cache, \
+             buck-out, \
+             build,
+
+[alias]
+  api_deploy = //tools/maven:api_deploy
+  api_install = //tools/maven:api_install
+  client      = //selendroid-client:src
+  grid-plugin = //selendroid-grid-plugin:src
+  standalone  = //selendroid-standalone:src
+  testapp     = //apps/selendroid-test-apk:app
+
+[buildfile]
+  includes = //tools/DEFS
+
+[build]
+    build_dependencies = FIRST_ORDER_ONLY
+
+[test]
+    # This specifies a maximum timeout of 1 minute (60000 milliseconds)
+    # per test.
+    timeout = 600000
+    # Ignore the end to end tests unless we actually want to run them
+    excluded_labels = e2e
+    # Treat any org.junit.internal.AssumptionViolatedException as an error.
+    assumptions-are-errors = yes	

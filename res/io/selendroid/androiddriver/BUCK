@@ -1,0 +1,10 @@
+android_resource(
+  name = 'res',
+  res = 'res',
+  package = 'io.selendroid.androiddriver',
+  visibility = [ 'PUBLIC' ],
+)
+project_config(
+  src_target = ':res',
+  src_roots = [ 'res'],
+)

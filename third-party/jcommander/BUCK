@@ -1,0 +1,5 @@
+prebuilt_jar(
+  name = 'jcommander',
+  binary_jar = 'jcommander-1.30.jar',
+  visibility = [ 'PUBLIC' ],
+ )

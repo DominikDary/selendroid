@@ -1,0 +1,25 @@
+java_library(
+  name = 'src',
+  srcs = glob(['src/**/*.java']),
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//third-party/json:org-json',
+    '//third-party/netty-all:netty-all'
+  ],  
+)
+
+java_test(
+  name = 'test',
+  srcs = glob(['test/**/*.java']),
+  deps = [
+    '//third-party/junit:junit',
+  ],
+)
+
+
+project_config(
+  src_target = ':src',
+  src_roots = [ 'src' ],
+  test_target = ':test',
+  test_roots = ['test'],
+)

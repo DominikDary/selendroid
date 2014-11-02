@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'xml-apis',
+  binary_jar = 'xml-apis-1.4.01.jar',
+  source_jar = 'xml-apis-1.4.01-sources.jar',
+  visibility = [
+    '//selendroid-test-app:test',
+  ],
+)

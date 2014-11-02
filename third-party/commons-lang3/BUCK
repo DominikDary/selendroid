@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'commons-lang3',
+  binary_jar = 'commons-lang3-3.1.jar',
+  source_jar = 'commons-lang3-3.1-sources.jar',
+  visibility = [
+    'PUBLIC',
+  ],
+)

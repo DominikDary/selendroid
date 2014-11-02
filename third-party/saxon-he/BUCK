@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'saxon-he',
+  binary_jar = 'Saxon-HE-9.4.0.6.jar',
+  source_jar = 'Saxon-HE-9.4.0.6-sources.jar',
+  visibility = [
+    '//selendroid-test-app:test',
+  ],
+)

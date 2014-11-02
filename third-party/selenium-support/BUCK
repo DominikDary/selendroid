@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'selenium-support',
+  binary_jar = 'selenium-support-2.43.1.jar',
+  source_jar = 'selenium-support-2.43.1-sources.jar',
+  visibility = [
+    'PUBLIC',
+  ],
+)

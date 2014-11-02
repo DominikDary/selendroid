@@ -1,0 +1,23 @@
+java_library(
+  name = 'src',
+  srcs = glob(['src/**/*.java']),
+  resources  = glob(['resources/**/*.*']),
+  visibility = [ 'PUBLIC' ],
+  deps = [
+    '//third-party/selenium-api:selenium-api',
+    '//third-party/selenium-server:selenium-server',
+  ],  
+)
+
+java_binary(
+  name = 'bin',
+  deps = [ 
+	  ':src' ],
+)
+
+
+project_config(
+  src_target = ':src',
+  src_roots = [ 'src', 'resources' ],
+)
+

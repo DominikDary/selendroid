@@ -1,0 +1,17 @@
+android_library(
+  name = 'src',
+  srcs = glob(['src/**/*.java']),
+  visibility = [
+    '//apps/android-driver-apk:',
+  ],
+  deps = [
+    '//third-party/json:org-json',
+    '//third-party/commons-io:commons-io',
+    '//res/io/selendroid/androiddriver:res', 
+  ],  
+)
+
+project_config(
+  src_target = ':src',
+  src_roots = [ 'src'],
+)

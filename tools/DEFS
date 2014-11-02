@@ -1,0 +1,2 @@
+include_defs('//tools/java_doc.defs')
+include_defs('//tools/java_sources.defs')

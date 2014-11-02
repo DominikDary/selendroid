@@ -1,5 +1,13 @@
+*.asc
 .externalToolBuilders
 maven-eclipse.xml
+/gerrit-package-plugins
+/.buckconfig.local
+/.buckjavaargs
+/.buckd
+/buck-cache
+/buck-out
+/local.properties
 .classpath
 .settings/
 *.project

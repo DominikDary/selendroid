@@ -1,0 +1,35 @@
+android_library(
+  name = 'src',
+  srcs = glob(['src/**/*.java']),
+  visibility = [
+    '//apps/selendroid-test-apk:',
+  ],
+  resources = ['//res/io/selendroid/testapp:res'],
+  deps = [
+    '//res/io/selendroid/testapp:res', 
+    '//third-party/json:org-json',
+    '//third-party/commons-io:commons-io',
+  ],  
+)
+
+java_test(
+  name = 'test',
+  srcs = glob(['test/**/*.java']),
+  deps = [
+    '//selendroid-standalone:src',
+    '//selendroid-client:src',
+    '//third-party/junit:junit',
+    '//third-party/mockito-core:mockito-core',
+    '//third-party/hamcrest:hamcrest',
+    '//third-party/xml-apis:xml-apis',
+    '//third-party/saxon-he:saxon-he',
+    '//third-party/dom4j:dom4j',
+  ],
+)
+
+project_config(
+  src_target = ':src',
+  src_roots = [ 'src' ],
+  test_target = ':test',
+  test_roots = ['test','test-resources'],
+)

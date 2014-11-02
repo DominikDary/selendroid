@@ -1,0 +1,11 @@
+android_resource(
+  name = 'res',
+  res = 'res',
+  assets = 'assets',  
+  package = 'io.selendroid.testapp',
+  visibility = [ 'PUBLIC' ],
+)
+project_config(
+  src_target = ':res',
+  src_roots = [ 'res','assets','gen'],
+)

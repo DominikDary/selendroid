@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'dom4j',
+  binary_jar = 'dom4j-1.6.1.jar',
+  source_jar = 'dom4j-1.6.1-sources.jar',
+  visibility = [
+    '//selendroid-test-app:test',
+  ],
+)

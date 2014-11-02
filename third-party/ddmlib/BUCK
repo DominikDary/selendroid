@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'ddmlib',
+  binary_jar = 'ddmlib-23.2.0.jar',
+  source_jar = 'ddmlib-23.2.0-sources.jar',
+  visibility = [
+    'PUBLIC',
+  ],
+)

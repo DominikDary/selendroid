@@ -1,0 +1,5 @@
+prebuilt_jar(
+  name = 'netty-all',
+  binary_jar = 'netty-all-4.0.21.FINAL.jar',
+  visibility = [ 'PUBLIC' ],
+)

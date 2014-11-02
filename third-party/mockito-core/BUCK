@@ -1,0 +1,8 @@
+prebuilt_jar(
+  name = 'mockito-core',
+  binary_jar = 'mockito-core-1.9.5.jar',
+  source_jar = 'mockito-core-1.9.5-sources.jar',
+  visibility = [
+    'PUBLIC',
+  ],
+)

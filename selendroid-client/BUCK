@@ -1,0 +1,26 @@
+java_library(
+  name = 'src',
+  srcs = glob(['src/**/*.java']),
+  visibility = [ 'PUBLIC' ],
+  deps = [
+  	'//selendroid-common:lib',
+	'//selendroid-server-common:src',		
+    '//third-party/selenium-support:selenium-support',
+    '//third-party/selenium-api:selenium-api',
+    '//third-party/selenium-java:selenium-java',
+	'//third-party/selenium-remote-driver:selenium-remote-driver',
+    '//third-party/gson:gson',
+    '//third-party/guava:guava',
+  ],  
+)
+
+java_binary(
+  name = 'bin',
+  deps = [ 
+	  ':src' ],
+)
+
+project_config(
+  src_target = ':src',
+  src_roots = [ 'src' ],
+)

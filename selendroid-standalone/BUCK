@@ -1,0 +1,77 @@
+java_library(
+  name = 'src',
+  srcs = glob(['src/**/*.java']),
+  visibility = [ 'PUBLIC' ],
+  deps = [
+	'//selendroid-server-common:src',
+	'//selendroid-common:src',
+    '//third-party/selenium-support:selenium-support',
+	'//third-party/selenium-remote-driver:selenium-remote-driver',
+    '//third-party/selenium-api:selenium-api',
+    '//third-party/selenium-java:selenium-java',
+    '//third-party/commons-logging:commons-logging',
+	'//third-party/netty-all:netty-all',
+	'//third-party/httpcore:httpcore',
+    '//third-party/httpclient:httpclient',
+    '//third-party/json:org-json',
+	'//third-party/guava:guava',	
+    '//third-party/commons-io:commons-io',
+    '//third-party/commons-exec:commons-exec',
+    '//third-party/commons-compress:commons-compress',
+    '//third-party/commons-lang3:commons-lang3',
+    '//third-party/ddmlib:ddmlib',
+	'//third-party/jcommander:jcommander',
+  ],
+  resources = [
+	  '//apps/selendroid-server-apk:app',
+	  '//apps/android-driver-apk:app',
+  ],
+  exported_deps = [
+	'//selendroid-server-common:src',
+	'//selendroid-common:src',
+    '//third-party/selenium-support:selenium-support',
+	'//third-party/selenium-remote-driver:selenium-remote-driver',
+    '//third-party/selenium-api:selenium-api',
+    '//third-party/selenium-java:selenium-java',
+    '//third-party/commons-logging:commons-logging',
+	'//third-party/netty-all:netty-all',
+	'//third-party/httpcore:httpcore',
+    '//third-party/httpclient:httpclient',
+    '//third-party/json:org-json',
+	'//third-party/guava:guava',	
+    '//third-party/commons-io:commons-io',
+    '//third-party/commons-exec:commons-exec',
+    '//third-party/commons-compress:commons-compress',
+    '//third-party/commons-lang3:commons-lang3',
+    '//third-party/ddmlib:ddmlib',
+	'//third-party/jcommander:jcommander',
+  ],
+)
+
+java_test(
+  name = 'test',
+  srcs = glob(['test/**/*.java']),
+  deps = [
+    ':src',
+    '//selendroid-common:lib',
+    '//selendroid-server-common:src',
+    '//third-party/junit:junit',
+    '//third-party/mockito-core:mockito-core',
+    '//third-party/hamcrest:hamcrest',
+  ],
+)
+
+java_binary(
+  name = 'selendroid-standalone-with-dependencies',
+  deps = [ 
+      ':src',
+    ],  
+  main_class = 'io.selendroid.SelendroidLauncher',
+)
+
+project_config(
+  src_target = ':src',
+  src_roots = [ 'src' ],
+  test_target = ':test',
+  test_roots = ['test','test-resources'],
+)
